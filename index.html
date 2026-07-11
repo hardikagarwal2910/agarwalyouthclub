@@ -1,277 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agarwal Club Limited — The Library</title>
+<title>Agarwal Club Limited — A Private Members' Club · Ahmedabad</title>
+<meta name="description" content="A private members' club for the next generation of the Agarwal samaj. Ahmedabad. Forty-five and under. By application only.">
+<meta property="og:title" content="Agarwal Club Limited">
+<meta property="og:description" content="A samaj of thousands. A circle you actually know. By application only.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 32'%3E%3Crect width='30' height='30' y='1' fill='%238E3F20'/%3E%3Crect width='30' height='30' x='33' y='1' fill='%235B371F'/%3E%3Crect width='30' height='30' x='66' y='1' fill='%23D49F35'/%3E%3Ctext x='15' y='23' font-family='Georgia' font-size='20' fill='%23F2EFE9' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='48' y='23' font-family='Georgia' font-size='20' fill='%23F2EFE9' text-anchor='middle'%3EC%3C/text%3E%3Ctext x='81' y='23' font-family='Georgia' font-size='20' fill='%23F2EFE9' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
-html{scroll-behavior:smooth}
-body{margin:0;background:#2A211B;color:#F2EFE9;-webkit-font-smoothing:antialiased}
-a{color:#D49F35;text-decoration:none}a:hover{color:#E2B95B}
-input{outline:none}
-::selection{background:#D49F35;color:#2A211B}
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-</style>
-<style>
-/* compiled hover / focus states */
-[data-h="h0"]:hover{color:#F2EFE9 !important}
-[data-h="h1"]:hover{border-color:#D49F35 !important;background:rgba(212,159,53,.08) !important}
-[data-h="h2"]:hover{background:#E2B95B !important;color:#2A211B !important}
-[data-h="h3"]:hover{border-color:#D49F35 !important}
-[data-h="h4"]:hover{background:rgba(212,159,53,.04) !important}
-[data-h="h5"]:hover{background:#E2B95B !important}
-[data-f="f0"]:focus{border-bottom-color:#D49F35 !important}
-body{font-family:'EB Garamond',serif}
+  :root{
+    --ink:#2A211B; --ink-2:#241B15; --ink-3:#231A14;
+    --rust:#8E3F20; --brown:#5B371F; --gold:#D49F35; --gold-2:#E2B95B;
+    --ivory:#F2EFE9; --cream-soft:rgba(242,239,233,.72); --cream-dim:rgba(242,239,233,.6);
+    --line:rgba(212,159,53,.25); --line-soft:rgba(242,239,233,.1);
+    --serif:'Cormorant Garamond',Georgia,serif; --text:'EB Garamond',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--ivory);font-family:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+  a{color:var(--gold);text-decoration:none;transition:color .25s ease,border-color .25s ease,background .25s ease}
+  a:hover{color:var(--gold-2)}
+  ::selection{background:var(--gold);color:var(--ink)}
+  .wrap{max-width:1200px;margin:0 auto;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ===== nav ===== */
+  nav{position:sticky;top:0;z-index:50;background:rgba(42,33,27,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:18px;padding-bottom:18px}
+  .brand{display:flex;align-items:center;gap:12px;color:var(--ivory)}
+  .brand:hover{color:var(--ivory)}
+  .tiles{display:flex;gap:3px}
+  .tile{width:24px;height:24px;display:grid;place-items:center;font-weight:600;font-size:13px;color:var(--ivory)}
+  .tile.a{background:var(--rust)}.tile.c{background:var(--brown)}.tile.l{background:var(--gold)}
+  .brand span.wm{font-size:13px;letter-spacing:.28em}
+  .nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,32px)}
+  .nav-links a{font-size:11.5px;letter-spacing:.2em;color:var(--cream-soft)}
+  .nav-links a:hover{color:var(--ivory)}
+  .nav-links a.cta{color:var(--gold);border:1px solid rgba(212,159,53,.5);padding:11px 22px}
+  .nav-links a.cta:hover{border-color:var(--gold);background:rgba(212,159,53,.08);color:var(--gold)}
+  @media (max-width:860px){.nav-links a:not(.cta){display:none}}
+
+  /* ===== hero ===== */
+  header{position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center}
+  .lamplight{position:absolute;inset:0;background:
+    radial-gradient(ellipse 62% 55% at 68% 30%, rgba(212,159,53,.16), transparent 62%),
+    radial-gradient(ellipse 55% 55% at 30% 85%, rgba(142,63,32,.22), transparent 65%)}
+  .hero-in{position:relative;width:100%;padding-top:clamp(80px,12vh,140px);padding-bottom:clamp(80px,12vh,140px)}
+  .kicker{display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:var(--gold)}
+  .kicker::before{content:"";width:32px;height:1px;background:var(--gold);opacity:.7}
+  .kicker.mid::after{content:"";width:32px;height:1px;background:var(--gold);opacity:.7}
+  h1{margin-top:34px;font-family:var(--serif);font-weight:300;font-size:clamp(48px,8.2vw,108px);line-height:1.04;max-width:14ch}
+  h1 em{font-style:italic;color:var(--gold)}
+  .hero-sub{margin-top:32px;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,30px);color:var(--cream-soft);max-width:26ch;line-height:1.35}
+  .hero-ctas{margin-top:44px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .btn{display:inline-block;background:var(--gold);color:var(--ink);padding:16px 34px;font-size:11px;letter-spacing:.22em;font-weight:600;border:none;cursor:pointer;font-family:var(--text)}
+  .btn:hover{background:var(--gold-2);color:var(--ink)}
+  .btn-ghost{display:inline-block;color:var(--gold);border:1px solid rgba(212,159,53,.45);padding:15px 30px;font-size:11px;letter-spacing:.22em}
+  .btn-ghost:hover{border-color:var(--gold)}
+  .hero-note{font-size:11px;letter-spacing:.26em;color:rgba(242,239,233,.45)}
+
+  section{border-top:1px solid var(--line)}
+  .pad{padding-top:clamp(72px,10vw,140px);padding-bottom:clamp(72px,10vw,140px)}
+  h2{font-family:var(--serif);font-weight:300;font-size:clamp(36px,5.6vw,68px);line-height:1.05}
+  h2 em,.gold-i{font-style:italic;color:var(--gold)}
+
+  /* ===== why ===== */
+  .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,88px);align-items:center}
+  .frame{position:relative;aspect-ratio:4/5;border:1px solid rgba(212,159,53,.3);overflow:hidden;background:var(--ink-3)}
+  .frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:76% 50%;filter:sepia(.14) saturate(.9) brightness(.97)}
+  .frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top, rgba(42,33,27,.72), rgba(42,33,27,.06) 50%, rgba(42,33,27,.14))}
+  .frame .cap{position:absolute;left:0;right:0;bottom:0;padding:26px;display:flex;flex-direction:column;gap:8px;z-index:1}
+  .frame .cap i{font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ivory);max-width:18ch;line-height:1.25}
+  .lede{font-family:var(--serif);font-weight:300;font-size:clamp(26px,3.2vw,40px);line-height:1.3}
+  .body-p{margin-top:26px;font-size:17px;line-height:1.8;color:var(--cream-soft);max-width:52ch}
+  .body-p + .body-p{margin-top:18px}
+  .stats{display:flex;gap:clamp(28px,5vw,64px);margin-top:40px;flex-wrap:wrap}
+  .stat b{font-family:var(--serif);font-weight:300;font-size:clamp(40px,4.6vw,58px);color:var(--gold);display:block;line-height:.95}
+  .stat span{font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:12px;display:block}
+
+  /* ===== eligibility ===== */
+  .center-head{text-align:center;max-width:760px;margin:0 auto 60px}
+  .center-head h2{margin-top:24px}
+  .elig-card{border:1px solid rgba(212,159,53,.3);background:var(--ink-2);padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,80px);align-items:center}
+  .elig-title{font-family:var(--serif);font-style:italic;font-size:clamp(28px,3.8vw,46px);color:var(--gold);line-height:1.15}
+  .elig-copy{margin-top:24px;font-size:16.5px;line-height:1.8;color:var(--cream-soft);max-width:44ch}
+  .elig-table{border-left:1px solid rgba(212,159,53,.3);padding-left:clamp(24px,4vw,48px)}
+  .elig-row{padding:16px 0;border-bottom:1px solid rgba(212,159,53,.18);display:flex;justify-content:space-between;gap:24px;font-size:17px;flex-wrap:wrap}
+  .elig-row:last-child{border-bottom:none}
+  .elig-row .k{color:var(--cream-dim)}
+  .elig-row .v{font-family:var(--serif);font-size:20px}
+  .elig-row .v.gold{color:var(--gold)}
+  @media (max-width:680px){.elig-table{border-left:none;padding-left:0;border-top:1px solid rgba(212,159,53,.3);padding-top:20px}}
+
+  /* ===== experience ===== */
+  .exp-head{max-width:820px;margin-bottom:56px}
+  .exp-list{border-top:1px solid var(--line-soft)}
+  .exp-row{display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid var(--line-soft);transition:background .3s ease}
+  .exp-row:hover{background:rgba(212,159,53,.04)}
+  .exp-row .no{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--gold);opacity:.8}
+  .exp-row h3{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.6vw,34px)}
+  .exp-row p{color:rgba(242,239,233,.65);font-size:16px;line-height:1.75}
+  @media (max-width:680px){.exp-row{grid-template-columns:44px 1fr}.exp-row p{grid-column:2}}
+
+  /* ===== modelled ===== */
+  .modelled{max-width:900px;margin:0 auto;text-align:center}
+  .modelled .lede{margin-top:26px;line-height:1.35;font-size:clamp(24px,3.2vw,40px)}
+  .creds{display:flex;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap;margin-top:52px}
+  .cred i{font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);display:block}
+  .cred span{font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:10px;display:block}
+
+  /* ===== founding ===== */
+  .founding{position:relative;overflow:hidden;background:var(--ink-2)}
+  .founding .glow{position:absolute;inset:0;background:radial-gradient(55% 50% at 50% 25%, rgba(212,159,53,.12), transparent 62%)}
+  .founding-in{position:relative;max-width:900px;margin:0 auto;text-align:center}
+  .fifty{font-family:var(--serif);font-weight:300;font-size:clamp(130px,24vw,280px);line-height:.85;color:var(--gold);margin-top:16px}
+  .founding h2{margin-top:14px;font-size:clamp(30px,4.4vw,50px)}
+  .founding p{margin:26px auto 0;max-width:54ch;font-size:16.5px;line-height:1.8;color:var(--cream-soft)}
+  .founding .btn{margin-top:40px}
+
+  /* ===== membership ===== */
+  .mem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,80px);align-items:center}
+  .mem-grid h2{font-size:clamp(32px,4.6vw,56px);line-height:1.08}
+  .mem-card{border:1px solid rgba(212,159,53,.3);background:var(--ink-2);padding:clamp(28px,4vw,44px)}
+  .mem-row{display:flex;gap:16px;padding:17px 0;border-bottom:1px solid var(--line-soft)}
+  .mem-row:last-child{border-bottom:none}
+  .mem-row .tick{color:var(--gold);font-size:17px}
+  .mem-row b{font-family:var(--serif);font-weight:500;font-size:19px;display:block}
+  .mem-row small{font-size:14px;color:var(--cream-dim)}
+
+  /* ===== request ===== */
+  .req{max-width:780px;margin:0 auto}
+  .req-head{text-align:center;margin-bottom:52px}
+  .req-head h2{margin-top:24px;font-size:clamp(34px,5vw,60px)}
+  form .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px 32px}
+  .field{display:flex;flex-direction:column}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:10.5px;letter-spacing:.22em;color:var(--gold);margin-bottom:12px}
+  .field input{font-family:var(--serif);font-size:20px;color:var(--ivory);background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0;border-radius:0;outline:none;transition:border-color .3s ease}
+  .field input:focus{border-bottom-color:var(--gold)}
+  .field input::placeholder{color:rgba(242,239,233,.3)}
+  .req-foot{display:flex;align-items:center;justify-content:space-between;gap:26px;margin-top:44px;flex-wrap:wrap}
+  .req-foot p{font-size:12px;color:rgba(242,239,233,.45);max-width:38ch;line-height:1.6}
+  .confirm{text-align:center;padding:24px 0;display:none}
+  .confirm.show{display:block;animation:fadeUp .8s ease both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .confirm .ring{width:92px;height:92px;margin:0 auto 28px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold-2);font-size:34px;font-family:var(--serif)}
+  .confirm h3{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.6vw,52px)}
+  .confirm p{margin:20px auto 0;max-width:46ch;color:var(--cream-soft);font-size:16.5px;line-height:1.8}
+
+  /* ===== footer ===== */
+  footer{border-top:1px solid var(--line);background:var(--ink-2)}
+  .foot-in{padding-top:clamp(56px,7vw,90px);padding-bottom:36px}
+  .foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;padding-bottom:48px;border-bottom:1px solid var(--line-soft)}
+  .foot-grid p{color:var(--cream-dim);max-width:32ch;font-size:14px;line-height:1.7}
+  .foot-col{display:flex;flex-direction:column;gap:12px}
+  .foot-col b{font-size:10.5px;letter-spacing:.24em;color:var(--gold);margin-bottom:8px;font-weight:400}
+  .foot-col a,.foot-col span{color:var(--cream-dim);font-size:14px}
+  .foot-col a:hover{color:var(--ivory)}
+  .foot-base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;font-size:11.5px;color:rgba(242,239,233,.4)}
+  .foot-base .wm{letter-spacing:.32em;font-size:10.5px;color:rgba(242,239,233,.55)}
 </style>
 </head>
 <body>
-<div style="background:#2A211B;color:#F2EFE9;font-family:'EB Garamond',serif;min-height:100vh">
 
-  <!-- ===== Nav ===== -->
-  <div style="position:sticky;top:0;z-index:50;background:rgba(42,33,27,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(212,159,53,.25)">
-    <div style="max-width:1200px;margin:0 auto;padding:18px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
-      <a href="#top" style="display:flex;align-items:center;gap:12px;color:#F2EFE9">
-        <span style="display:flex;gap:3px">
-          <span style="width:24px;height:24px;background:#8E3F20;color:#F2EFE9;display:grid;place-items:center;font-weight:600;font-size:13px">A</span>
-          <span style="width:24px;height:24px;background:#5B371F;color:#F2EFE9;display:grid;place-items:center;font-weight:600;font-size:13px">C</span>
-          <span style="width:24px;height:24px;background:#D49F35;color:#F2EFE9;display:grid;place-items:center;font-weight:600;font-size:13px">L</span>
-        </span>
-        <span style="font-size:13px;letter-spacing:.28em">AGARWAL CLUB LIMITED</span>
-      </a>
-      <div style="display:flex;align-items:center;gap:clamp(16px,3vw,32px);flex-wrap:wrap">
-        <a href="#why" style="font-size:11.5px;letter-spacing:.2em;color:rgba(242,239,233,.7)" data-h="h0">THE ROOM</a>
-        <a href="#eligibility" style="font-size:11.5px;letter-spacing:.2em;color:rgba(242,239,233,.7)" data-h="h0">ELIGIBILITY</a>
-        <a href="#experience" style="font-size:11.5px;letter-spacing:.2em;color:rgba(242,239,233,.7)" data-h="h0">MEMBERSHIP</a>
-        <a href="#founding" style="font-size:11.5px;letter-spacing:.2em;color:rgba(242,239,233,.7)" data-h="h0">FOUNDING 50</a>
-        <a href="#request" style="font-size:11px;letter-spacing:.22em;color:#D49F35;border:1px solid rgba(212,159,53,.5);padding:11px 22px" data-h="h1">REQUEST INVITATION</a>
+<!-- ===================== NAV ===================== -->
+<nav>
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">
+      <span class="tiles"><span class="tile a">A</span><span class="tile c">C</span><span class="tile l">L</span></span>
+      <span class="wm">AGARWAL CLUB LIMITED</span>
+    </a>
+    <div class="nav-links">
+      <a href="#why">THE ROOM</a>
+      <a href="#eligibility">ELIGIBILITY</a>
+      <a href="#experience">MEMBERSHIP</a>
+      <a href="#founding">FOUNDING 50</a>
+      <a class="cta" href="#request">REQUEST INVITATION</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header id="top">
+  <div class="lamplight"></div>
+  <div class="wrap hero-in reveal in">
+    <span class="kicker">A PRIVATE MEMBERS' CLUB · AHMEDABAD</span>
+    <h1>A samaj of thousands.<br><em>A circle you actually know.</em></h1>
+    <p class="hero-sub">The private room of the next Agarwal generation.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="#request">REQUEST INVITATION</a>
+      <a class="btn-ghost" href="#why">STEP INSIDE</a>
+      <span class="hero-note">BY APPLICATION ONLY</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== WHY ===================== -->
+<section id="why">
+  <div class="wrap pad why-grid">
+    <div class="frame reveal">
+      <img src="assets/reading-room.jpg" alt="A lamplit reading room — aged books beside a warm lamp">
+      <div class="cap">
+        <i>A room set for those who belong in it.</i>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="kicker">THE WHY</span>
+      <p class="lede" style="margin-top:26px">Ahmedabad holds one of India's largest Agarwal communities — <span class="gold-i">and most of it has never met.</span></p>
+      <p class="body-p">Tens of thousands of families, generations deep, sharing a name and a heritage. Yet walk into a samaj gathering and the faces are strangers. The community is immense; the connection is thin.</p>
+      <p class="body-p">Agarwal Club Limited is the room that closes the distance — a curated circle where the next generation of Agarwal founders, professionals and families come to genuinely know one another. So that no member's child ever walks into a community hall knowing no one.</p>
+      <div class="stats">
+        <div class="stat"><b>10,000s</b><span>FAMILIES IN THE SAMAJ</span></div>
+        <div class="stat"><b>50</b><span>IN THE FOUNDING ROOM</span></div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ===== Hero ===== -->
-  <div id="top" style="position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center">
-    
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse 62% 55% at 68% 30%, rgba(212,159,53,.16), transparent 62%),radial-gradient(ellipse 55% 55% at 30% 85%, rgba(142,63,32,.22), transparent 65%)"></div>
-    
-    <div style="position:relative;max-width:1200px;margin:0 auto;width:100%;padding:clamp(80px,12vh,140px) clamp(20px,4vw,56px);animation:fadeUp 1.1s ease both">
-      <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35">
-        <span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span>
-        <span>A PRIVATE MEMBERS' CLUB · AHMEDABAD</span>
-      </div>
-      <h1 style="margin:34px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(48px,8.2vw,108px);line-height:1.04;letter-spacing:-.005em;max-width:14ch">A samaj of thousands.<br><span style="font-style:italic;color:#D49F35">A circle you actually know.</span></h1>
-      <p style="margin:32px 0 0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(20px,2.6vw,30px);color:rgba(242,239,233,.72);max-width:26ch;line-height:1.35">The private room of the next Agarwal generation.</p>
-      <div style="margin-top:44px;display:flex;align-items:center;gap:18px;flex-wrap:wrap">
-        <a href="#request" style="background:#D49F35;color:#2A211B;padding:16px 34px;font-size:11px;letter-spacing:.22em;font-weight:600" data-h="h2">REQUEST INVITATION</a>
-        <a href="#why" style="color:#D49F35;border:1px solid rgba(212,159,53,.45);padding:15px 30px;font-size:11px;letter-spacing:.22em" data-h="h3">STEP INSIDE</a>
-        <span style="font-size:11px;letter-spacing:.26em;color:rgba(242,239,233,.45)">BY APPLICATION ONLY</span>
-      </div>
+<!-- ===================== ELIGIBILITY ===================== -->
+<section id="eligibility">
+  <div class="wrap pad">
+    <div class="center-head reveal">
+      <span class="kicker mid">ELIGIBILITY</span>
+      <h2>Young by <em>design.</em></h2>
     </div>
-  </div>
-
-  <!-- ===== Why ===== -->
-  <div id="why" style="border-top:1px solid rgba(212,159,53,.22)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,88px);align-items:center">
-      <div style="position:relative;aspect-ratio:4/5;border:1px solid rgba(212,159,53,.3);overflow:hidden;background:radial-gradient(70% 50% at 30% 20%, rgba(212,159,53,.18), transparent 60%),#231A14">
-        <div style="position:absolute;inset:0;opacity:.08;background-image:linear-gradient(rgba(212,159,53,1) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(212,159,53,1) 1.5px,transparent 1.5px);background-size:40px 40px"></div>
-        <div style="position:absolute;left:0;right:0;bottom:0;padding:26px;display:flex;flex-direction:column;gap:8px">
-          <span style="font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.18em;color:rgba(242,239,233,.55)">[ CLUB-ROOM PHOTOGRAPHY — WOOD, LAMPLIGHT, LEATHER ]</span>
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#F2EFE9;max-width:18ch;line-height:1.25">A room set for those who belong in it.</span>
-        </div>
-      </div>
+    <div class="elig-card reveal">
       <div>
-        <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35;margin-bottom:26px"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>THE WHY</span></div>
-        <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,3.2vw,40px);line-height:1.3;color:#F2EFE9">Ahmedabad holds one of India's largest Agarwal communities — <span style="font-style:italic;color:#D49F35">and most of it has never met.</span></p>
-        <p style="margin:26px 0 0;font-size:17px;line-height:1.8;color:rgba(242,239,233,.72);max-width:52ch">Tens of thousands of families, generations deep, sharing a name and a heritage. Yet walk into a samaj gathering and the faces are strangers. The community is immense; the connection is thin.</p>
-        <p style="margin:18px 0 0;font-size:17px;line-height:1.8;color:rgba(242,239,233,.72);max-width:52ch">Agarwal Club Limited is the room that closes the distance — a curated circle where the next generation of Agarwal founders, professionals and families come to genuinely know one another. So that no member's child ever walks into a community hall knowing no one.</p>
-        <div style="display:flex;gap:clamp(28px,5vw,64px);margin-top:40px;flex-wrap:wrap">
-          <div><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,4.6vw,58px);color:#D49F35;display:block;line-height:.95">10,000s</span><span style="font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:12px;display:block">FAMILIES IN THE SAMAJ</span></div>
-          <div><span style="font-family:'Cormorant Garamond',serif;font-size:clamp(40px,4.6vw,58px);color:#D49F35;display:block;line-height:.95">50</span><span style="font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:12px;display:block">IN THE FOUNDING ROOM</span></div>
-        </div>
+        <p class="elig-title">Join at 45 or younger.<br>A member until 50.</p>
+        <p class="elig-copy">Any Agarwal in Ahmedabad, forty-five or under, may apply. Membership retires at fifty — so the room is forever led by its next generation. The rule is not a limit; it is the reason the club stays sharp.</p>
+      </div>
+      <div class="elig-table">
+        <div class="elig-row"><span class="k">Community</span><span class="v">Agarwal, by family</span></div>
+        <div class="elig-row"><span class="k">Age at admission</span><span class="v">Forty-five or under</span></div>
+        <div class="elig-row"><span class="k">Entry</span><span class="v">Application, seconded by a member</span></div>
+        <div class="elig-row"><span class="k">Retirement</span><span class="v gold">At fifty — the room passes forward</span></div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ===== Eligibility ===== -->
-  <div id="eligibility" style="border-top:1px solid rgba(212,159,53,.22)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px)">
-      <div style="text-align:center;max-width:760px;margin:0 auto 60px">
-        <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>ELIGIBILITY</span><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span></div>
-        <h2 style="margin:24px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5.6vw,68px);line-height:1.05">Young by <span style="font-style:italic;color:#D49F35">design.</span></h2>
+<!-- ===================== EXPERIENCE ===================== -->
+<section id="experience">
+  <div class="wrap pad">
+    <div class="exp-head reveal">
+      <span class="kicker">MEMBER EXPERIENCE</span>
+      <h2 style="margin-top:22px">What the room <em>offers.</em></h2>
+    </div>
+    <div class="exp-list">
+      <div class="exp-row reveal">
+        <span class="no">01</span>
+        <h3>The Occasions</h3>
+        <p>Four or five exclusive gatherings a year — dinners, salons, retreats. Deliberately few, so that each one is worth clearing the calendar for.</p>
       </div>
-      <div style="border:1px solid rgba(212,159,53,.3);background:#241B15;padding:clamp(32px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,80px);align-items:center">
-        <div>
-          <p style="margin:0;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(28px,3.8vw,46px);color:#D49F35;line-height:1.15">Join at 45 or younger.<br>A member until 50.</p>
-          <p style="margin:24px 0 0;font-size:16.5px;line-height:1.8;color:rgba(242,239,233,.72);max-width:44ch">Any Agarwal in Ahmedabad, forty-five or under, may apply. Membership retires at fifty — so the room is forever led by its next generation. The rule is not a limit; it is the reason the club stays sharp.</p>
-        </div>
-        <div style="border-left:1px solid rgba(212,159,53,.3);padding-left:clamp(24px,4vw,48px);display:flex;flex-direction:column">
-          <div style="padding:16px 0;border-bottom:1px solid rgba(212,159,53,.18);display:flex;justify-content:space-between;gap:24px;font-size:17px"><span style="color:rgba(242,239,233,.6)">Community</span><span style="font-family:'Cormorant Garamond',serif;font-size:20px">Agarwal, by family</span></div>
-          <div style="padding:16px 0;border-bottom:1px solid rgba(212,159,53,.18);display:flex;justify-content:space-between;gap:24px;font-size:17px"><span style="color:rgba(242,239,233,.6)">Age at admission</span><span style="font-family:'Cormorant Garamond',serif;font-size:20px">Forty-five or under</span></div>
-          <div style="padding:16px 0;border-bottom:1px solid rgba(212,159,53,.18);display:flex;justify-content:space-between;gap:24px;font-size:17px"><span style="color:rgba(242,239,233,.6)">Entry</span><span style="font-family:'Cormorant Garamond',serif;font-size:20px">Application, seconded by a member</span></div>
-          <div style="padding:16px 0;display:flex;justify-content:space-between;gap:24px;font-size:17px"><span style="color:rgba(242,239,233,.6)">Retirement</span><span style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#D49F35">At fifty — the room passes forward</span></div>
-        </div>
+      <div class="exp-row reveal">
+        <span class="no">02</span>
+        <h3>Peer Forums</h3>
+        <p>Confidential forums of eight to ten, in the tradition of the world's finest peer networks. The one room where you speak plainly.</p>
+      </div>
+      <div class="exp-row reveal">
+        <span class="no">03</span>
+        <h3>Business &amp; Deal Flow</h3>
+        <p>Partnerships, capital and counsel among members who understand exactly how you built what you have.</p>
+      </div>
+      <div class="exp-row reveal">
+        <span class="no">04</span>
+        <h3>Mentorship Across the Samaj</h3>
+        <p>Seasoned members guiding those a chapter behind. Hard-won wisdom, kept within the family.</p>
+      </div>
+      <div class="exp-row reveal">
+        <span class="no">05</span>
+        <h3>Family &amp; Festival Calendar</h3>
+        <p>Occasions the whole family attends — so the next generation grows up already knowing one another.</p>
+      </div>
+      <div class="exp-row reveal">
+        <span class="no">06</span>
+        <h3>Community &amp; Giving</h3>
+        <p>Pooled means, directed with intent, toward the causes our samaj has always held dear.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ===== Experience ===== -->
-  <div id="experience" style="border-top:1px solid rgba(212,159,53,.22)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px)">
-      <div style="max-width:820px;margin-bottom:56px">
-        <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35;margin-bottom:22px"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>MEMBER EXPERIENCE</span></div>
-        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,5.6vw,68px);line-height:1.05">What the room <span style="font-style:italic;color:#D49F35">offers.</span></h2>
-      </div>
-      <div style="border-top:1px solid rgba(242,239,233,.1);display:flex;flex-direction:column">
-        <div style="display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid rgba(242,239,233,.1)" data-h="h4">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#D49F35;opacity:.8">01</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px)">The Occasions</h3>
-          <p style="margin:0;color:rgba(242,239,233,.65);font-size:16px;line-height:1.75">Four or five exclusive gatherings a year — dinners, salons, retreats. Deliberately few, so that each one is worth clearing the calendar for.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid rgba(242,239,233,.1)" data-h="h4">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#D49F35;opacity:.8">02</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px)">Peer Forums</h3>
-          <p style="margin:0;color:rgba(242,239,233,.65);font-size:16px;line-height:1.75">Confidential forums of eight to ten, in the tradition of the world's finest peer networks. The one room where you speak plainly.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid rgba(242,239,233,.1)" data-h="h4">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#D49F35;opacity:.8">03</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px)">Business &amp; Deal Flow</h3>
-          <p style="margin:0;color:rgba(242,239,233,.65);font-size:16px;line-height:1.75">Partnerships, capital and counsel among members who understand exactly how you built what you have.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid rgba(242,239,233,.1)" data-h="h4">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#D49F35;opacity:.8">04</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px)">Mentorship Across the Samaj</h3>
-          <p style="margin:0;color:rgba(242,239,233,.65);font-size:16px;line-height:1.75">Seasoned members guiding those a chapter behind. Hard-won wisdom, kept within the family.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid rgba(242,239,233,.1)" data-h="h4">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#D49F35;opacity:.8">05</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px)">Family &amp; Festival Calendar</h3>
-          <p style="margin:0;color:rgba(242,239,233,.65);font-size:16px;line-height:1.75">Occasions the whole family attends — so the next generation grows up already knowing one another.</p>
-        </div>
-        <div style="display:grid;grid-template-columns:56px minmax(200px,1fr) 2fr;gap:clamp(18px,3vw,52px);align-items:baseline;padding:clamp(26px,3.2vw,40px) 0;border-bottom:1px solid rgba(242,239,233,.1)" data-h="h4">
-          <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#D49F35;opacity:.8">06</span>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(24px,2.6vw,34px)">Community &amp; Giving</h3>
-          <p style="margin:0;color:rgba(242,239,233,.65);font-size:16px;line-height:1.75">Pooled means, directed with intent, toward the causes our samaj has always held dear.</p>
-        </div>
+<!-- ===================== MODELLED ===================== -->
+<section>
+  <div class="wrap pad">
+    <div class="modelled reveal">
+      <span class="kicker mid">MODELLED ON THE BEST</span>
+      <p class="lede">The formats behind the world's most respected peer networks — global entrepreneurs' organisations, young presidents' forums, our own community's collectives — <span class="gold-i">distilled and rebuilt</span> for the Agarwal samaj.</p>
+      <div class="creds">
+        <div class="cred"><i>Proven format</i><span>PEER FORUMS &amp; ACCOUNTABILITY</span></div>
+        <div class="cred"><i>Familiar values</i><span>SAMAJ FIRST, ALWAYS</span></div>
+        <div class="cred"><i>Exacting standard</i><span>CURATED &amp; DISCREET</span></div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- ===== Modelled ===== -->
-  
-  <div style="border-top:1px solid rgba(212,159,53,.22)">
-    <div style="max-width:900px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px);text-align:center">
-      <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35;margin-bottom:26px"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>MODELLED ON THE BEST</span><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span></div>
-      <p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(24px,3.2vw,40px);line-height:1.35">The formats behind the world's most respected peer networks — global entrepreneurs' organisations, young presidents' forums, our own community's collectives — <span style="font-style:italic;color:#D49F35">distilled and rebuilt</span> for the Agarwal samaj.</p>
-      <div style="display:flex;justify-content:center;gap:clamp(28px,6vw,72px);flex-wrap:wrap;margin-top:52px">
-        <div><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.4vw,28px);display:block">Proven format</span><span style="font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:10px;display:block">PEER FORUMS &amp; ACCOUNTABILITY</span></div>
-        <div><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.4vw,28px);display:block">Familiar values</span><span style="font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:10px;display:block">SAMAJ FIRST, ALWAYS</span></div>
-        <div><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(22px,2.4vw,28px);display:block">Exacting standard</span><span style="font-size:10.5px;letter-spacing:.2em;color:rgba(242,239,233,.5);margin-top:10px;display:block">CURATED &amp; DISCREET</span></div>
+<!-- ===================== FOUNDING ===================== -->
+<section id="founding" class="founding">
+  <div class="glow"></div>
+  <div class="wrap pad founding-in reveal">
+    <span class="kicker mid">THE FOUNDING COHORT</span>
+    <div class="fifty">50</div>
+    <h2>The <em>Founding</em> Fifty</h2>
+    <p>Every institution begins with the few who believed first. Fifty founding memberships mark the beginning of Agarwal Club Limited — a permanent place on the founding roll, and a hand in shaping all that follows. The seats are deliberately few, and will not be offered twice.</p>
+    <a class="btn" href="#request">ENQUIRE ABOUT A FOUNDING SEAT</a>
+  </div>
+</section>
+
+<!-- ===================== MEMBERSHIP & FEES ===================== -->
+<section id="membership">
+  <div class="wrap pad mem-grid">
+    <div class="reveal">
+      <span class="kicker">MEMBERSHIP &amp; FEES</span>
+      <h2 style="margin-top:24px">Considered. Private.<br>By <em>invitation.</em></h2>
+      <p class="body-p" style="max-width:46ch">Membership is by application and invitation. A one-time joining contribution and annual dues apply; particulars are shared privately with candidates under consideration. We keep the terms discreet — for the same reason we keep the circle small.</p>
+    </div>
+    <div class="mem-card reveal">
+      <div class="mem-row"><span class="tick">✓</span><span><b>By application</b><small>Each candidate considered individually, in confidence.</small></span></div>
+      <div class="mem-row"><span class="tick">✓</span><span><b>Joining fee applies</b><small>A one-time founding contribution, shared privately.</small></span></div>
+      <div class="mem-row"><span class="tick">✓</span><span><b>Annual dues</b><small>Modest against the company you keep.</small></span></div>
+      <div class="mem-row"><span class="tick">✓</span><span><b>A member's word opens the door</b><small>Referral welcomed, and remembered.</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REQUEST ===================== -->
+<section id="request">
+  <div class="wrap pad req">
+    <div class="req-head reveal">
+      <span class="kicker mid">REQUEST AN INVITATION</span>
+      <h2>Introduce <em>yourself.</em></h2>
+    </div>
+    <form id="invite-form" class="reveal">
+      <div class="grid">
+        <div class="field"><label for="f-name">FULL NAME</label><input id="f-name" name="name" type="text" placeholder="Your name" required></div>
+        <div class="field"><label for="f-age">AGE</label><input id="f-age" name="age" type="number" min="18" max="45" placeholder="45 or younger" required></div>
+        <div class="field"><label for="f-work">BUSINESS / PROFESSION</label><input id="f-work" name="profession" type="text" placeholder="What you do" required></div>
+        <div class="field"><label for="f-phone">MOBILE</label><input id="f-phone" name="mobile" type="tel" placeholder="+91" required></div>
+        <div class="field full"><label for="f-email">EMAIL</label><input id="f-email" name="email" type="email" placeholder="you@example.com" required></div>
+        <div class="field full"><label for="f-ref">WHO IN THE CLUB KNOWS YOU?</label><input id="f-ref" name="referral" type="text" placeholder="A member's name — or how you found us"></div>
       </div>
+      <div class="req-foot">
+        <p>By requesting an invitation you agree to be contacted privately by the membership committee.</p>
+        <button class="btn" type="submit">SEND REQUEST</button>
+      </div>
+    </form>
+    <div class="confirm" id="confirm">
+      <div class="ring">✓</div>
+      <h3>Your request is <em class="gold-i">received.</em></h3>
+      <p>Thank you. The membership committee reviews every enquiry personally. If there is a place for you in the founding room, you will hear from us — quietly, and soon.</p>
     </div>
   </div>
-  
+</section>
 
-  <!-- ===== Founding ===== -->
-  <div id="founding" style="border-top:1px solid rgba(212,159,53,.22);position:relative;overflow:hidden;background:#241B15">
-    <div style="position:absolute;inset:0;background:radial-gradient(55% 50% at 50% 25%, rgba(212,159,53,.12), transparent 62%)"></div>
-    <div style="position:relative;max-width:900px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px);text-align:center">
-      <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>THE FOUNDING COHORT</span><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span></div>
-      <div style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(130px,24vw,280px);line-height:.85;color:#D49F35;margin-top:16px">50</div>
-      <h2 style="margin:14px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4.4vw,50px)">The <span style="font-style:italic;color:#D49F35">Founding</span> Fifty</h2>
-      <p style="margin:26px auto 0;max-width:54ch;font-size:16.5px;line-height:1.8;color:rgba(242,239,233,.7)">Every institution begins with the few who believed first. Fifty founding memberships mark the beginning of Agarwal Club Limited — a permanent place on the founding roll, and a hand in shaping all that follows. The seats are deliberately few, and will not be offered twice.</p>
-      <a href="#request" style="display:inline-block;margin-top:40px;background:#D49F35;color:#2A211B;padding:16px 36px;font-size:11px;letter-spacing:.22em;font-weight:600" data-h="h2">ENQUIRE ABOUT A FOUNDING SEAT</a>
-    </div>
-  </div>
-
-  <!-- ===== Membership & Fees ===== -->
-  <div id="membership" style="border-top:1px solid rgba(212,159,53,.22)">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,80px);align-items:center">
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap foot-in">
+    <div class="foot-grid">
       <div>
-        <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35;margin-bottom:24px"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>MEMBERSHIP &amp; FEES</span></div>
-        <h2 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(32px,4.6vw,56px);line-height:1.08">Considered. Private.<br>By <span style="font-style:italic;color:#D49F35">invitation.</span></h2>
-        <p style="margin:26px 0 0;font-size:16.5px;line-height:1.8;color:rgba(242,239,233,.7);max-width:46ch">Membership is by application and invitation. A one-time joining contribution and annual dues apply; particulars are shared privately with candidates under consideration. We keep the terms discreet — for the same reason we keep the circle small.</p>
+        <span class="tiles" style="margin-bottom:20px"><span class="tile a" style="width:26px;height:26px;font-size:14px">A</span><span class="tile c" style="width:26px;height:26px;font-size:14px">C</span><span class="tile l" style="width:26px;height:26px;font-size:14px">L</span></span>
+        <p>A private members' club for the next generation of the Agarwal samaj. Ahmedabad, Gujarat.</p>
       </div>
-      <div style="border:1px solid rgba(212,159,53,.3);background:#241B15;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column">
-        <div style="display:flex;gap:16px;padding:17px 0;border-bottom:1px solid rgba(242,239,233,.1)"><span style="color:#D49F35;font-size:17px">✓</span><span><span style="font-family:'Cormorant Garamond',serif;font-size:19px;display:block">By application</span><span style="font-size:14px;color:rgba(242,239,233,.6)">Each candidate considered individually, in confidence.</span></span></div>
-        <div style="display:flex;gap:16px;padding:17px 0;border-bottom:1px solid rgba(242,239,233,.1)"><span style="color:#D49F35;font-size:17px">✓</span><span><span style="font-family:'Cormorant Garamond',serif;font-size:19px;display:block">Joining fee applies</span><span style="font-size:14px;color:rgba(242,239,233,.6)">A one-time founding contribution, shared privately.</span></span></div>
-        <div style="display:flex;gap:16px;padding:17px 0;border-bottom:1px solid rgba(242,239,233,.1)"><span style="color:#D49F35;font-size:17px">✓</span><span><span style="font-family:'Cormorant Garamond',serif;font-size:19px;display:block">Annual dues</span><span style="font-size:14px;color:rgba(242,239,233,.6)">Modest against the company you keep.</span></span></div>
-        <div style="display:flex;gap:16px;padding:17px 0"><span style="color:#D49F35;font-size:17px">✓</span><span><span style="font-family:'Cormorant Garamond',serif;font-size:19px;display:block">A member's word opens the door</span><span style="font-size:14px;color:rgba(242,239,233,.6)">Referral welcomed, and remembered.</span></span></div>
+      <div class="foot-col">
+        <b>THE CLUB</b>
+        <a href="#why">The Room</a>
+        <a href="#eligibility">Eligibility</a>
+        <a href="#experience">Membership</a>
+        <a href="#founding">The Founding 50</a>
       </div>
-    </div>
-  </div>
-
-  <!-- ===== Request ===== -->
-  <div id="request" style="border-top:1px solid rgba(212,159,53,.22)">
-    <div style="max-width:780px;margin:0 auto;padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px)">
-      <div style="text-align:center;margin-bottom:52px">
-        <div style="display:inline-flex;align-items:center;gap:14px;font-size:11px;letter-spacing:.42em;color:#D49F35"><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span><span>REQUEST AN INVITATION</span><span style="width:32px;height:1px;background:#D49F35;opacity:.7"></span></div>
-        <h2 style="margin:24px 0 0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,5vw,60px)">Introduce <span style="font-style:italic;color:#D49F35">yourself.</span></h2>
-      </div>
-      <div id="acl-form">
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px 32px">
-          <div style="display:flex;flex-direction:column"><label style="font-size:10.5px;letter-spacing:.22em;color:#D49F35;margin-bottom:12px">FULL NAME</label><input type="text" placeholder="Your name" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#F2EFE9;background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0" data-f="f0"></div>
-          <div style="display:flex;flex-direction:column"><label style="font-size:10.5px;letter-spacing:.22em;color:#D49F35;margin-bottom:12px">AGE</label><input type="number" placeholder="45 or younger" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#F2EFE9;background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0" data-f="f0"></div>
-          <div style="display:flex;flex-direction:column"><label style="font-size:10.5px;letter-spacing:.22em;color:#D49F35;margin-bottom:12px">BUSINESS / PROFESSION</label><input type="text" placeholder="What you do" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#F2EFE9;background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0" data-f="f0"></div>
-          <div style="display:flex;flex-direction:column"><label style="font-size:10.5px;letter-spacing:.22em;color:#D49F35;margin-bottom:12px">MOBILE</label><input type="tel" placeholder="+91" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#F2EFE9;background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0" data-f="f0"></div>
-          <div style="display:flex;flex-direction:column;grid-column:1/-1"><label style="font-size:10.5px;letter-spacing:.22em;color:#D49F35;margin-bottom:12px">EMAIL</label><input type="email" placeholder="you@example.com" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#F2EFE9;background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0" data-f="f0"></div>
-          <div style="display:flex;flex-direction:column;grid-column:1/-1"><label style="font-size:10.5px;letter-spacing:.22em;color:#D49F35;margin-bottom:12px">WHO IN THE CLUB KNOWS YOU?</label><input type="text" placeholder="A member's name — or how you found us" style="font-family:'Cormorant Garamond',serif;font-size:20px;color:#F2EFE9;background:transparent;border:none;border-bottom:1px solid rgba(242,239,233,.2);padding:8px 0" data-f="f0"></div>
-        </div>
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:26px;margin-top:44px;flex-wrap:wrap">
-          <p style="margin:0;font-size:12px;color:rgba(242,239,233,.45);max-width:38ch;line-height:1.6">By requesting an invitation you agree to be contacted privately by the membership committee.</p>
-          <button onclick="aclSubmit()" style="background:#D49F35;color:#2A211B;border:none;padding:17px 44px;font-size:11px;letter-spacing:.2em;font-weight:600;cursor:pointer;font-family:'EB Garamond',serif" data-h="h5">SEND REQUEST</button>
-        </div>
-      </div>
-      <div id="acl-confirm" style="display:none">
-        <div style="text-align:center;padding:24px 0;animation:fadeUp .8s ease both">
-          <div style="width:92px;height:92px;margin:0 auto 28px;border:1px solid #D49F35;border-radius:50%;display:grid;place-items:center"><span style="color:#E2B95B;font-size:34px;font-family:'Cormorant Garamond',serif">✓</span></div>
-          <h3 style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(30px,4.6vw,52px)">Your request is <span style="font-style:italic;color:#D49F35">received.</span></h3>
-          <p style="margin:20px auto 0;max-width:46ch;color:rgba(242,239,233,.7);font-size:16.5px;line-height:1.8">Thank you. The membership committee reviews every enquiry personally. If there is a place for you in the founding room, you will hear from us — quietly, and soon.</p>
-        </div>
+      <div class="foot-col">
+        <b>ENQUIRIES</b>
+        <a href="#request">Request an Invitation</a>
+        <span>membership@agarwalyouthclub.com</span>
+        <span>Ahmedabad · By appointment</span>
       </div>
     </div>
-  </div>
-
-  <!-- ===== Footer ===== -->
-  <div style="border-top:1px solid rgba(212,159,53,.25);background:#241B15">
-    <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,7vw,90px) clamp(20px,4vw,56px) 36px">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:44px;padding-bottom:48px;border-bottom:1px solid rgba(242,239,233,.1)">
-        <div>
-          <div style="display:flex;gap:3px;margin-bottom:20px">
-            <span style="width:26px;height:26px;background:#8E3F20;color:#F2EFE9;display:grid;place-items:center;font-weight:600;font-size:14px">A</span>
-            <span style="width:26px;height:26px;background:#5B371F;color:#F2EFE9;display:grid;place-items:center;font-weight:600;font-size:14px">C</span>
-            <span style="width:26px;height:26px;background:#D49F35;color:#F2EFE9;display:grid;place-items:center;font-weight:600;font-size:14px">L</span>
-          </div>
-          <p style="margin:0;color:rgba(242,239,233,.6);max-width:32ch;font-size:14px;line-height:1.7">A private members' club for the next generation of the Agarwal samaj. Ahmedabad, Gujarat.</p>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:10.5px;letter-spacing:.24em;color:#D49F35;margin-bottom:8px">THE CLUB</span>
-          <a href="#why" style="color:rgba(242,239,233,.6);font-size:14px" data-h="h0">The Room</a>
-          <a href="#eligibility" style="color:rgba(242,239,233,.6);font-size:14px" data-h="h0">Eligibility</a>
-          <a href="#experience" style="color:rgba(242,239,233,.6);font-size:14px" data-h="h0">Membership</a>
-          <a href="#founding" style="color:rgba(242,239,233,.6);font-size:14px" data-h="h0">The Founding 50</a>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <span style="font-size:10.5px;letter-spacing:.24em;color:#D49F35;margin-bottom:8px">ENQUIRIES</span>
-          <a href="#request" style="color:rgba(242,239,233,.6);font-size:14px" data-h="h0">Request an Invitation</a>
-          <span style="color:rgba(242,239,233,.6);font-size:14px">membership@agarwalclub.in</span>
-          <span style="color:rgba(242,239,233,.6);font-size:14px">Ahmedabad · By appointment</span>
-        </div>
-      </div>
-      <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:30px;font-size:11.5px;color:rgba(242,239,233,.4)">
-        <span style="letter-spacing:.32em;font-size:10.5px;color:rgba(242,239,233,.55)">AGARWAL CLUB LIMITED</span>
-        <span>© 2026 Agarwal Club Limited · Incorporated under the Companies Act, 2013 · CIN U82300GJ2026GAP178994 · Ahmedabad</span>
-      </div>
+    <div class="foot-base">
+      <span class="wm">AGARWAL CLUB LIMITED</span>
+      <span>© 2026 Agarwal Club Limited · Incorporated under the Companies Act, 2013 · CIN U82300GJ2026GAP178994 · Ahmedabad</span>
     </div>
   </div>
+</footer>
 
-</div>
 <script>
-function aclSubmit(){
-  var f=document.getElementById('acl-form'),c=document.getElementById('acl-confirm');
-  if(f)f.style.display='none';
-  if(c){c.style.display='block';c.scrollIntoView({behavior:'smooth',block:'center'});}
-}
+  // Gentle scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+
+  // Invitation form — client-side confirmation.
+  // To receive real submissions: create a free Formspree form and set
+  // data-endpoint below to e.g. "https://formspree.io/f/XXXXXXXX".
+  (function () {
+    var form = document.getElementById('invite-form');
+    var confirmBox = document.getElementById('confirm');
+    var ENDPOINT = form.getAttribute('data-endpoint') || '';
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      if (ENDPOINT) {
+        var data = new FormData(form);
+        fetch(ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } }).catch(function () {});
+      }
+      form.style.display = 'none';
+      confirmBox.classList.add('show');
+    });
+  })();
 </script>
+
 </body>
 </html>
