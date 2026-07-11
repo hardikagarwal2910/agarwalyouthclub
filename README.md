@@ -1,7 +1,7 @@
-# Agarwal Club Limited — Website
+# Agrawal Club Limited — Website
 
-Static single-page site for **Agarwal Club Limited** (ACL), a private members' club
-for the next generation of the Agarwal samaj in Ahmedabad.
+Static single-page site for **Agrawal Club Limited** (ACL), a private members' club
+for the next generation of the Agrawal samaj in Ahmedabad.
 
 - **Live:** https://agarwalyouthclub.com
 - **Source design:** "The Library" direction (compiled from the design tool to a
